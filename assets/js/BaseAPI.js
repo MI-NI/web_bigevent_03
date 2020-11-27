@@ -10,9 +10,9 @@ $.ajaxPrefilter(function(options) {
     // 无论成功还是失败都会执行complete函数
 
     options.complete = function(res) {
-        console.log(res);
+        // console.log(res);
         var obj = res.responseJSON
-        if (obj.status == 1 && obj.message == "身份认证失败！") {
+        if (obj.status === 1 && obj.message === "身份认证失败！") {
             localStorage.removeItem('token')
             location.href = '/login.html'
         }
